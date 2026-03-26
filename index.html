@@ -63,7 +63,6 @@
         
         .sidebar-item:hover .team-group { display: flex; }
 
-        /* KLEINE KNOPPEN NAAST ELKAAR */
         .team-button {
             flex: 1 1 calc(50% - 6px);
             background: var(--wit); color: var(--dreef-blauw);
@@ -74,7 +73,7 @@
         }
         .team-button:hover, .team-button.active { background: var(--dreef-blauw); color: var(--wit); }
 
-        /* CONTENT AREA */
+        /* CONTENT */
         .main-content { margin-left: var(--sidebar-breedte); flex: 1; padding: 40px; }
         .container { width: 100%; max-width: 900px; margin: 0 auto; }
         
@@ -151,8 +150,6 @@
                 <button class="team-button" onclick="laadTeam(this)">JO11-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO11-2</button>
                 <button class="team-button" onclick="laadTeam(this)">JO11-3</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-4</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-5</button>
             </div>
         </div>
 
@@ -163,7 +160,10 @@
                 <button class="team-button" onclick="laadTeam(this)">JO10-2</button>
                 <button class="team-button" onclick="laadTeam(this)">JO9-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO9-2</button>
+                <button class="team-button" onclick="laadTeam(this)">JO9-3</button>
                 <button class="team-button" onclick="laadTeam(this)">JO8-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO8-2</button>
+                <button class="team-button" onclick="laadTeam(this)">JO8-3</button>
                 <button class="team-button" onclick="laadTeam(this)">JO7-1</button>
             </div>
         </div>
@@ -172,22 +172,17 @@
 
     <main class="main-content">
         <div class="container">
-            <h1 id="active-team-name">Welkom</h1>
-            
+            <h1 id="active-team-name">SV OVERVECHT</h1>
             <div class="card">
-                <div class="card-header">Club Nieuws</div>
+                <div class="card-header">Mededeling</div>
                 <div id="mededeling-box" class="mededeling-box">
-                    Welkom op de nieuwe clubsite van SV Overvecht De Dreef! Selecteer een team aan de linkerkant voor standen en info.
+                    Welkom op de officiële clubsite. Kies een team voor standen en nieuws.
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        const TEAM_DATA = {
-            'JO14-2': { mededeling: "<strong>ZATERDAG:</strong> Verzamelen 08:00 bij De Dreef." }
-        };
-
         function gaNaarHome() {
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             document.getElementById('active-team-name').innerText = "SV OVERVECHT";
@@ -198,14 +193,8 @@
             const teamNaam = buttonElement.innerText;
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             buttonElement.classList.add('active');
-            
-            // TITEL FIX: Pakt direct de tekst van de knop
             document.getElementById('active-team-name').innerText = teamNaam;
-
-            const data = TEAM_DATA[teamNaam] || { 
-                mededeling: "Nog geen mededelingen voor " + teamNaam + "." 
-            };
-            document.getElementById('mededeling-box').innerHTML = data.mededeling;
+            document.getElementById('mededeling-box').innerHTML = "Informatie voor " + teamNaam + " volgt zodra de API is gekoppeld.";
         }
 
         window.onload = gaNaarHome;
