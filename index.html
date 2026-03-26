@@ -18,7 +18,7 @@
 
         body { font-family: 'Poppins', sans-serif; background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); }
 
-        /* SIDEBAR UPGRADE */
+        /* SIDEBAR */
         .sidebar {
             width: var(--sidebar-breedte);
             background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
@@ -33,11 +33,10 @@
             box-shadow: 10px 0 30px rgba(0,0,0,0.1);
         }
 
-        .sidebar-header { padding: 30px 20px; text-align: center; background: rgba(0,0,0,0.1); margin-bottom: 10px; }
+        .sidebar-header { padding: 30px 20px; text-align: center; background: rgba(0,0,0,0.1); flex-shrink: 0; }
         .sidebar-logo { width: 90px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); }
         .sidebar-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
 
-        /* HOME KNOP MODERN */
         .home-btn {
             width: 90%; margin: 10px auto; background: var(--wit); color: var(--dreef-blauw);
             padding: 12px 20px; border: none; border-radius: 12px;
@@ -45,25 +44,20 @@
             cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; gap: 12px;
             transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .home-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); background: var(--dreef-blauw); color: white; }
+        .home-btn:hover { transform: translateY(-2px); background: var(--dreef-blauw); color: white; }
 
-        /* CATEGORIEËN EN DROPDOWNS */
-        .sidebar-item { margin-bottom: 2px; }
         .category-btn {
             width: 100%; background: transparent; color: white;
             padding: 15px 25px; border: none; text-align: left;
             font-family: 'Oswald', sans-serif; text-transform: uppercase;
             cursor: pointer; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid var(--trans-wit);
-            transition: background 0.2s;
         }
-        .category-btn:hover { background: var(--trans-wit); }
 
         .team-group {
             display: none; background: rgba(0,0,0,0.2); padding: 12px;
-            flex-wrap: wrap; gap: 8px; animation: slideDown 0.3s ease;
+            flex-wrap: wrap; gap: 8px;
         }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         
         .sidebar-item:hover .team-group { display: flex; }
 
@@ -74,34 +68,34 @@
             text-transform: uppercase; border-radius: 8px; cursor: pointer;
             transition: all 0.2s;
         }
-        .team-button:hover, .team-button.active { background: var(--wit); color: var(--dreef-blauw); font-weight: 700; transform: scale(1.03); }
+        .team-button:hover, .team-button.active { background: var(--wit); color: var(--dreef-blauw); font-weight: 700; }
 
-        /* MAIN CONTENT DESIGN */
+        /* MAIN CONTENT */
         .main-content { margin-left: var(--sidebar-breedte); flex: 1; padding: 50px; }
         .container { width: 100%; max-width: 1000px; margin: 0 auto; }
         
         h1#active-team-name { 
             font-family: 'Oswald', sans-serif; color: var(--dreef-blauw); 
-            text-transform: uppercase; border-left: 8px solid var(--dreef-rood); 
-            padding-left: 20px; margin-bottom: 40px; font-size: 4rem;
+            text-transform: uppercase; border-left: 10px solid var(--dreef-rood); 
+            padding-left: 25px; margin-bottom: 40px; font-size: 4rem;
             line-height: 1; letter-spacing: -1px;
         }
         
         .card { 
             background: white; border-radius: 24px; overflow: hidden; 
-            box-shadow: var(--shadow); margin-bottom: 35px; border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: var(--shadow); margin-bottom: 35px;
         }
         .card-header { 
             background: var(--dreef-blauw); color: white; padding: 18px 25px; 
             font-family: 'Oswald', sans-serif; text-align: left; 
-            text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px;
+            text-transform: uppercase; font-size: 1.2rem;
             border-bottom: 4px solid var(--dreef-rood);
         }
         .mededeling-box { padding: 35px; line-height: 1.8; font-size: 1.15rem; color: #444; }
 
         @media (max-width: 900px) {
             body { flex-direction: column; }
-            .sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 5px solid var(--dreef-blauw); }
+            .sidebar { position: relative; width: 100%; height: auto; border-right: none; }
             .main-content { margin-left: 0; padding: 25px; }
             h1#active-team-name { font-size: 2.5rem; }
         }
@@ -125,6 +119,15 @@
         </div>
 
         <div class="sidebar-item">
+            <button class="category-btn">Onder 16 & 15 <span>+</span></button>
+            <div class="team-group">
+                <button class="team-button" onclick="laadTeam(this)">JO16-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO15-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO15-2JM</button>
+            </div>
+        </div>
+
+        <div class="sidebar-item">
             <button class="category-btn">Onder 14 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO14-1</button>
@@ -134,11 +137,24 @@
         </div>
 
         <div class="sidebar-item">
+            <button class="category-btn">Onder 13 & 12 <span>+</span></button>
+            <div class="team-group">
+                <button class="team-button" onclick="laadTeam(this)">JO13-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO13-2</button>
+                <button class="team-button" onclick="laadTeam(this)">JO12-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO12-2</button>
+                <button class="team-button" onclick="laadTeam(this)">JO12-3</button>
+            </div>
+        </div>
+
+        <div class="sidebar-item">
             <button class="category-btn">Onder 11 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO11-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO11-2</button>
                 <button class="team-button" onclick="laadTeam(this)">JO11-3</button>
+                <button class="team-button" onclick="laadTeam(this)">JO11-4</button>
+                <button class="team-button" onclick="laadTeam(this)">JO11-5</button>
             </div>
         </div>
 
@@ -146,6 +162,7 @@
             <button class="category-btn">Onder 10 t/m 7 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO10-1</button>
+                <button class="team-button" onclick="laadTeam(this)">JO10-2</button>
                 <button class="team-button" onclick="laadTeam(this)">JO9-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO9-2</button>
                 <button class="team-button" onclick="laadTeam(this)">JO9-3</button>
@@ -161,11 +178,10 @@
     <main class="main-content">
         <div class="container">
             <h1 id="active-team-name">SV OVERVECHT</h1>
-            
             <div class="card">
-                <div class="card-header">Laatste Update</div>
+                <div class="card-header">Mededeling</div>
                 <div id="mededeling-box" class="mededeling-box">
-                    Welkom op het nieuwe digitale hart van SV Overvecht De Dreef. Selecteer een team voor live updates en mededelingen.
+                    Welkom op de nieuwe clubsite. Kies een team voor standen en nieuws.
                 </div>
             </div>
         </div>
@@ -183,7 +199,7 @@
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             buttonElement.classList.add('active');
             document.getElementById('active-team-name').innerText = teamNaam;
-            document.getElementById('mededeling-box').innerHTML = "Hier komt straks de automatische data voor <strong>" + teamNaam + "</strong>.";
+            document.getElementById('mededeling-box').innerHTML = "Informatie voor <strong>" + teamNaam + "</strong> volgt zodra de API is gekoppeld.";
         }
 
         window.onload = gaNaarHome;
