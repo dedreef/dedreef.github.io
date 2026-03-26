@@ -35,6 +35,16 @@
         .sidebar-logo { width: 80px; margin-bottom: 10px; }
         .sidebar-title { font-family: 'Oswald', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: var(--wit); line-height: 1.2; }
 
+        /* HOME KNOP STYLING */
+        .home-btn {
+            width: 100%; background: var(--wit); color: var(--dreef-blauw);
+            padding: 15px 20px; border: none; border-bottom: 4px solid var(--dreef-blauw);
+            text-align: left; font-family: 'Oswald', sans-serif; text-transform: uppercase;
+            cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;
+            transition: 0.3s;
+        }
+        .home-btn:hover { background: var(--dreef-blauw); color: var(--wit); }
+
         .category-btn {
             width: 100%; background: var(--dreef-blauw); color: white;
             padding: 12px 20px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -66,7 +76,6 @@
         .main-content { margin-left: var(--sidebar-breedte); flex: 1; padding: 40px; }
         .container { width: 100%; max-width: 900px; margin: 0 auto; }
         
-        /* DE GROTE TITEL BOVEN DE RODE STREEP */
         h1#active-team-name { 
             font-family: 'Oswald', sans-serif; 
             color: var(--dreef-blauw); 
@@ -74,7 +83,7 @@
             border-bottom: 4px solid var(--dreef-rood); 
             padding-bottom: 10px; 
             margin-bottom: 30px; 
-            font-size: 3rem; /* Lekker groot */
+            font-size: 3rem;
         }
         
         .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 30px; }
@@ -96,6 +105,8 @@
             <div class="sidebar-title">SV OVERVECHT <br> DE DREEF</div>
         </div>
 
+        <button class="home-btn" onclick="gaNaarHome()">🏠 HOME</button>
+
         <div class="sidebar-item">
             <button class="category-btn">Mannen Zaterdag <span>▼</span></button>
             <div class="team-group">
@@ -104,89 +115,53 @@
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">Onder 16 & 15 <span>▼</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO16-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO15-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO15-2JM</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
             <button class="category-btn">Onder 14 <span>▼</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO14-1</button>
-                <button class="team-button active" onclick="laadTeam(this)">JO14-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO14-3</button>
+                <button class="team-button" onclick="laadTeam(this)">JO14-2</button>
             </div>
         </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 13 & 12 <span>▼</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO13-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO13-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-3</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 11 <span>▼</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO11-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-3</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-4</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-5</button>
-            </div>
-        </div>
-
-    </nav>
+        </nav>
 
     <main class="main-content">
         <div class="container">
-            <h1 id="active-team-name">JO14-2</h1>
+            <h1 id="active-team-name">Welkom</h1>
             
             <div class="card">
-                <div class="card-header">Mededeling</div>
-                <div id="mededeling-box" class="mededeling-box">Kies een team in de lijst links...</div>
+                <div id="home-content">
+                    <div class="card-header">Club Nieuws</div>
+                    <div id="mededeling-box" class="mededeling-box">
+                        Selecteer een team in de lijst voor specifieke informatie of bekijk hier het laatste nieuws van SV Overvecht De Dreef.
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <script>
-        // Data per team (hier kun je later uitslagen/standen toevoegen)
         const TEAM_DATA = {
-            'JO14-2': {
-                mededeling: "<strong>AANKOMEND ZATERDAG:</strong><br>Verzamelen: 08:00 bij De Dreef.<br>Succes boys! 💪"
-            }
+            'JO14-2': { mededeling: "<strong>ZATERDAG:</strong> Verzamelen 08:00." }
         };
 
-        function laadTeam(buttonElement) {
-            // Stap 1: Pak de exacte tekst van de knop waar je op klikt
-            const teamNaam = buttonElement.innerText;
+        function gaNaarHome() {
+            document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
+            document.getElementById('active-team-name').innerText = "SV OVERVECHT";
+            document.getElementById('mededeling-box').innerHTML = "Welkom op de officiële website van SV Overvecht De Dreef. Kies een team voor de laatste standen en mededelingen.";
+        }
 
-            // Stap 2: Update de actieve stijl van de knoppen
+        function laadTeam(buttonElement) {
+            const teamNaam = buttonElement.innerText;
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             buttonElement.classList.add('active');
-
-            // Stap 3: Zet de tekst DIRECT in de grote titel boven de rode streep
             document.getElementById('active-team-name').innerText = teamNaam;
 
-            // Stap 4: Laad de mededeling (als die er is, anders standaard tekst)
             const data = TEAM_DATA[teamNaam] || { 
                 mededeling: "Nog geen mededelingen voor " + teamNaam + "." 
             };
             document.getElementById('mededeling-box').innerHTML = data.mededeling;
         }
 
-        // Zorg dat bij het opstarten de JO14-2 alvast goed staat
-        window.onload = function() {
-            const startBtn = document.querySelector('.team-button.active');
-            if(startBtn) laadTeam(startBtn);
-        };
+        window.onload = gaNaarHome;
     </script>
 </body>
 </html>
