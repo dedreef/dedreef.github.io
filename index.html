@@ -18,7 +18,7 @@
 
         body { font-family: 'Poppins', sans-serif; background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); }
 
-        /* SIDEBAR */
+        /* SIDEBAR (HERSTELD NAAR ORIGINEEL) */
         .sidebar {
             width: var(--sidebar-breedte);
             background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
@@ -46,7 +46,7 @@
             letter-spacing: 1px;
         }
 
-        /* GEPERFECTIONEERDE HOME BUTTON */
+        /* GEPERFECTIONEERDE HOME BUTTON (ALLEEN DEZE IS VERBETERD) */
         .home-btn {
             display: flex; justify-content: center; align-items: center; 
             width: 90%; margin: 15px auto; height: 60px;
@@ -59,24 +59,14 @@
         }
         .home-btn:hover { transform: translateY(-3px); background: var(--dreef-blauw); color: white; }
 
-        /* CATEGORIE CAPSULES */
         .category-btn {
             width: 100%; background: transparent; color: white;
-            padding: 10px 15px; border: none; text-align: left;
+            padding: 15px 25px; border: none; text-align: left;
             font-family: 'Oswald', sans-serif; text-transform: uppercase;
             cursor: pointer; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid var(--trans-wit);
+            font-size: 1.05rem; letter-spacing: 0.5px;
         }
-
-        .cat-tag {
-            display: flex; align-items: center; gap: 8px;
-            background: var(--wit); color: var(--dreef-rood);
-            padding: 6px 14px; border-radius: 50px;
-            font-family: 'Poppins', sans-serif; font-weight: 800;
-            font-size: 0.85rem; line-height: 1; text-transform: uppercase;
-        }
-
-        .cat-logo-small { width: 24px; height: 24px; object-fit: contain; }
 
         .team-group {
             display: none; background: rgba(0,0,0,0.25); padding: 12px;
@@ -105,10 +95,18 @@
             line-height: 0.9; letter-spacing: -2px; font-weight: 800;
         }
         
+        /* HERSTELDE HOME GRID EN CARDS */
         .home-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 30px; }
         .card-header { background: var(--dreef-blauw); color: white; padding: 20px 30px; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 1.3rem; border-bottom: 5px solid var(--dreef-rood); }
         .card-body { padding: 35px; line-height: 1.7; font-size: 1.1rem; color: #333; }
+
+        .activity-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .date-badge { background: var(--dreef-rood); color: white; padding: 10px; border-radius: 12px; min-width: 60px; text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; }
+
+        .newsletter-box { background: var(--dreef-blauw); color: white; padding: 30px; border-radius: 24px; text-align: center; }
+        .newsletter-box input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; box-sizing: border-box;}
+        .newsletter-btn { background: var(--dreef-rood); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-family: 'Oswald', sans-serif; text-transform: uppercase; cursor: pointer; width: 100%; }
 
         @media (max-width: 1000px) {
             .home-grid { grid-template-columns: 1fr; }
@@ -128,20 +126,14 @@
         <button class="home-btn" onclick="gaNaarHome()">HOME</button>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag"><img src="logo.png" class="cat-logo-small"> MANNEN ZATERDAG</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Mannen Zaterdag <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">Mannen 1</button>
             </div>
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag">ONDER 16 & 15</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Onder 16 & 15 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO16-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO15-1</button>
@@ -150,10 +142,7 @@
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag">ONDER 14</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Onder 14 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO14-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO14-2</button>
@@ -162,10 +151,7 @@
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag">ONDER 13 & 12</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Onder 13 & 12 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO13-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO13-2</button>
@@ -176,10 +162,7 @@
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag">ONDER 11</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Onder 11 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO11-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO11-2</button>
@@ -190,10 +173,7 @@
         </div>
 
         <div class="sidebar-item">
-            <button class="category-btn">
-                <div class="cat-tag">ONDER 10 T/M 7</div>
-                <span>+</span>
-            </button>
+            <button class="category-btn">Onder 10 t/m 7 <span>+</span></button>
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO10-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO10-2</button>
@@ -213,13 +193,33 @@
     </main>
 
     <script>
+        // DE VOLLEDIGE, MOOIE HOMEPAGE CONTENT IS TERUG
         const homeContent = `
             <h1 id="active-team-name">SV OVERVECHT</h1>
             <div class="home-grid">
                 <div class="left-col">
                     <div class="card">
                         <div class="card-header">Over Onze Club</div>
-                        <div class="card-body">Welkom bij SV Overvecht De Dreef. Selecteer een team in de balk links.</div>
+                        <div class="card-body">
+                            Welkom bij SV Overvecht De Dreef. Wij zijn meer dan alleen een voetbalclub; wij zijn een gemeenschap. 
+                            Op deze site vind je alle informatie over onze teams, evenementen en het laatste nieuws.
+                            <br><br>
+                            <i>Website onder constructie.</i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Club Activiteiten 2026</div>
+                        <div class="card-body">
+                            <div class="activity-item"><div class="date-badge">12<br>APR</div><div><strong>Paas-Toernooi Jeugd</strong></div></div>
+                            <div class="activity-item"><div class="date-badge">20<br>JUN</div><div><strong>Eind-BBQ Seizoen</strong></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div class="newsletter-box">
+                        <h2 style="font-family:'Oswald'; margin-top:0;">NIEUWSBRIEF</h2>
+                        <input type="email" placeholder="Je e-mailadres">
+                        <button class="newsletter-btn">Aanmelden</button>
                     </div>
                 </div>
             </div>
