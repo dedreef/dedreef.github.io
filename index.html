@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SV OVERVECHT DE DREEF | Clubsite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --dreef-blauw: #0d061a;
@@ -16,9 +16,12 @@
             --shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
 
-        body { font-family: 'Poppins', sans-serif; background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); }
+        /* ALLES op Poppins gezet */
+        * { font-family: 'Poppins', sans-serif; }
 
-        /* SIDEBAR (HERSTELD NAAR ORIGINEEL) */
+        body { background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); }
+
+        /* SIDEBAR */
         .sidebar {
             width: var(--sidebar-breedte);
             background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
@@ -36,23 +39,22 @@
         .sidebar-logo { width: 100px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
         
         .sidebar-title { 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 1.5rem; 
+            font-size: 1.4rem; 
             text-transform: uppercase; 
-            font-weight: 700;
+            font-weight: 800; /* Extra dik zoals gevraagd */
             color: var(--wit);
             margin-top: 15px;
             line-height: 1.1;
-            letter-spacing: 1px;
+            letter-spacing: -0.5px;
         }
 
-        /* GEPERFECTIONEERDE HOME BUTTON (ALLEEN DEZE IS VERBETERD) */
+        /* GEPERFECTIONEERDE HOME BUTTON */
         .home-btn {
             display: flex; justify-content: center; align-items: center; 
             width: 90%; margin: 15px auto; height: 60px;
             background: var(--wit); color: var(--dreef-blauw);
             border: none; border-radius: 12px;
-            cursor: pointer; font-family: 'Poppins', sans-serif; 
+            cursor: pointer; 
             font-size: 2rem; font-weight: 800;
             transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-transform: uppercase;
@@ -62,10 +64,10 @@
         .category-btn {
             width: 100%; background: transparent; color: white;
             padding: 15px 25px; border: none; text-align: left;
-            font-family: 'Oswald', sans-serif; text-transform: uppercase;
+            text-transform: uppercase;
             cursor: pointer; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid var(--trans-wit);
-            font-size: 1.05rem; letter-spacing: 0.5px;
+            font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;
         }
 
         .team-group {
@@ -78,35 +80,44 @@
         .team-button {
             flex: 1 1 calc(50% - 8px); background: rgba(255,255,255,0.08); color: white;
             border: 1px solid var(--trans-wit); padding: 10px 5px;
-            font-family: 'Oswald', sans-serif; font-size: 0.9rem;
+            font-size: 0.85rem; font-weight: 600;
             text-transform: uppercase; border-radius: 8px; cursor: pointer;
             transition: all 0.2s;
         }
-        .team-button:hover, .team-button.active { background: var(--wit); color: var(--dreef-blauw); font-weight: 700; transform: scale(1.05); }
+        .team-button:hover, .team-button.active { background: var(--wit); color: var(--dreef-blauw); font-weight: 800; transform: scale(1.05); }
 
         /* MAIN CONTENT */
         .main-content { margin-left: var(--sidebar-breedte); flex: 1; padding: 60px; }
         .container { width: 100%; max-width: 1000px; margin: 0 auto; }
         
         h1#active-team-name { 
-            font-family: 'Oswald', sans-serif; color: var(--dreef-blauw); 
+            color: var(--dreef-blauw); 
             text-transform: uppercase; border-left: 12px solid var(--dreef-rood); 
-            padding-left: 30px; margin-bottom: 45px; font-size: 4.5rem;
-            line-height: 0.9; letter-spacing: -2px; font-weight: 800;
+            padding-left: 30px; margin-bottom: 45px; font-size: 4rem;
+            line-height: 0.9; letter-spacing: -2px; font-weight: 900; /* Maximaal dik */
         }
         
-        /* HERSTELDE HOME GRID EN CARDS */
         .home-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 30px; }
-        .card-header { background: var(--dreef-blauw); color: white; padding: 20px 30px; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 1.3rem; border-bottom: 5px solid var(--dreef-rood); }
-        .card-body { padding: 35px; line-height: 1.7; font-size: 1.1rem; color: #333; }
+        
+        .card-header { 
+            background: var(--dreef-blauw); color: white; padding: 20px 30px; 
+            text-transform: uppercase; font-size: 1.2rem; font-weight: 800;
+            border-bottom: 5px solid var(--dreef-rood); 
+        }
+        
+        .card-body { padding: 35px; line-height: 1.7; font-size: 1.05rem; color: #333; font-weight: 400; }
 
         .activity-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-        .date-badge { background: var(--dreef-rood); color: white; padding: 10px; border-radius: 12px; min-width: 60px; text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; }
+        .date-badge { 
+            background: var(--dreef-rood); color: white; padding: 10px; border-radius: 12px; 
+            min-width: 60px; text-align: center; font-weight: 800; font-size: 0.9rem;
+        }
 
         .newsletter-box { background: var(--dreef-blauw); color: white; padding: 30px; border-radius: 24px; text-align: center; }
-        .newsletter-box input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; box-sizing: border-box;}
-        .newsletter-btn { background: var(--dreef-rood); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-family: 'Oswald', sans-serif; text-transform: uppercase; cursor: pointer; width: 100%; }
+        .newsletter-box h2 { font-weight: 800; text-transform: uppercase; margin-top: 0; }
+        .newsletter-box input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        .newsletter-btn { background: var(--dreef-rood); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: 800; text-transform: uppercase; cursor: pointer; width: 100%; }
 
         @media (max-width: 1000px) {
             .home-grid { grid-template-columns: 1fr; }
@@ -137,53 +148,6 @@
             <div class="team-group">
                 <button class="team-button" onclick="laadTeam(this)">JO16-1</button>
                 <button class="team-button" onclick="laadTeam(this)">JO15-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO15-2JM</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 14 <span>+</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO14-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO14-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO14-3</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 13 & 12 <span>+</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO13-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO13-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO12-3</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 11 <span>+</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO11-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-3</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-4</button>
-                <button class="team-button" onclick="laadTeam(this)">JO11-5</button>
-            </div>
-        </div>
-
-        <div class="sidebar-item">
-            <button class="category-btn">Onder 10 t/m 7 <span>+</span></button>
-            <div class="team-group">
-                <button class="team-button" onclick="laadTeam(this)">JO10-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO10-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO9-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO9-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO9-3</button>
-                <button class="team-button" onclick="laadTeam(this)">JO8-1</button>
-                <button class="team-button" onclick="laadTeam(this)">JO8-2</button>
-                <button class="team-button" onclick="laadTeam(this)">JO8-3</button>
-                <button class="team-button" onclick="laadTeam(this)">JO7-1</button>
             </div>
         </div>
     </nav>
@@ -193,74 +157,35 @@
     </main>
 
     <script>
-const homeContent = `
-    <h1 id="active-team-name">SV OVERVECHT / DE DREEF</h1>
-    
-    <div class="home-grid">
-        
-        <div class="left-col">
-            
-            <div class="card">
-                <div class="card-header">Over Onze Club</div>
-                <div class="card-body">
-                    <p style="font-size: 1.15rem; margin-top: 0;">Welkom bij SV Overvecht De Dreef.</p>
-                    <p>Wij zijn meer dan alleen een voetbalclub; wij zijn een gemeenschap gericht op sportiviteit, plezier en ontwikkeling. Op deze site vind je alle informatie over onze teams, evenementen en het laatste nieuws. Of je nu speler, coach, vrijwilliger of supporter bent: je bent van harte welkom!</p>
-                    <p style="margin-bottom: 0;"><strong>Huidige status:</strong> De volledige integratie met wedstrijdprogramma's volgt binnenkort.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">Club Activiteiten 2026</div>
-                <div class="card-body">
-                    
-                    <div class="activity-item">
-                        <div class="date-badge">12<br>APR</div>
-                        <div>
-                            <strong>Paas-Toernooi Jeugd</strong><br>
-                            Groot toernooi voor alle O7 t/m O13 teams.
+        const homeContent = `
+            <h1 id="active-team-name">SV OVERVECHT</h1>
+            <div class="home-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header">Over Onze Club</div>
+                        <div class="card-body">
+                            Welkom bij SV Overvecht De Dreef. Wij zijn een gemeenschap gericht op sportiviteit en plezier.
+                            <br><br>
+                            <i>Website onder constructie.</i>
                         </div>
                     </div>
-                    
-                    <div class="activity-item">
-                        <div class="date-badge">30<br>MEI</div>
-                        <div>
-                            <strong>Vrijwilligers Avond</strong><br>
-                            Bedankavond voor alle coaches en hulptrainers.
+                    <div class="card">
+                        <div class="card-header">Club Activiteiten 2026</div>
+                        <div class="card-body">
+                            <div class="activity-item"><div class="date-badge">12<br>APR</div><div><strong style="font-weight:700;">Paas-Toernooi Jeugd</strong></div></div>
+                            <div class="activity-item"><div class="date-badge">20<br>JUN</div><div><strong style="font-weight:700;">Eind-BBQ Seizoen</strong></div></div>
                         </div>
                     </div>
-                    
-                    <div class="activity-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                        <div class="date-badge">20<br>JUN</div>
-                        <div>
-                            <strong>Eind-BBQ Seizoen</strong><br>
-                            Gezellige afsluiting met de hele club.
-                        </div>
+                </div>
+                <div class="right-col">
+                    <div class="newsletter-box">
+                        <h2>NIEUWSBRIEF</h2>
+                        <input type="email" placeholder="Je e-mailadres">
+                        <button class="newsletter-btn">Aanmelden</button>
                     </div>
-                    
                 </div>
             </div>
-            
-        </div> <div class="right-col">
-            
-            <div class="newsletter-box">
-                <h2 style="font-family:'Oswald'; margin-top:0; color: white;">NIEUWSBRIEF</h2>
-                <p>Blijf op de hoogte van clubnieuws, evenementen en afgelastingen.</p>
-                <form onsubmit="return false;">
-                    <input type="email" placeholder="Je e-mailadres" style="width: 100%;">
-                    <button class="newsletter-btn" style="width: 100%;">Aanmelden</button>
-                </form>
-            </div>
-            
-            <div class="card" style="margin-top:30px;">
-                <div class="card-header" style="background:var(--dreef-rood); text-align: center;">HELP DE CLUB</div>
-                <div class="card-body" style="font-size:1.05rem;">
-                    We zijn een vrijwilligersclub. Wij zoeken altijd naar enthousiaste scheidsrechters en kantine-medewerkers. Help jij ook mee?
-                    <br><br>
-                    <strong>Meld je aan bij het bestuur!</strong>
-                </div>
-            </div>
-            
-        </div> </div> `;
+        `;
 
         function gaNaarHome() {
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
@@ -275,7 +200,7 @@ const homeContent = `
                 <h1 id="active-team-name">${teamNaam}</h1>
                 <div class="card">
                     <div class="card-header">Team Informatie</div>
-                    <div class="card-body">Data voor ${teamNaam} wordt hier geladen.</div>
+                    <div class="card-body">Informatie voor ${teamNaam} wordt hier geladen.</div>
                 </div>`;
         }
 
