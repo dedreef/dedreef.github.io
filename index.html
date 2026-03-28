@@ -16,78 +16,48 @@
             --shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
 
-        * { font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+        * { font-family: 'Poppins', sans-serif; box-sizing: border-box; margin: 0; padding: 0; }
 
-        body { background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); overflow-x: hidden; }
+        body { background: var(--achtergrond); display: flex; min-height: 100vh; color: var(--dreef-blauw); overflow-x: hidden; }
 
-        /* MOBIELE HEADER (Alleen zichtbaar op mobiel) */
+        /* MOBIELE HEADER */
         .mobile-header {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 60px;
-            background: var(--dreef-rood);
-            color: white;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none; position: fixed; top: 0; left: 0; right: 0; height: 60px;
+            background: var(--dreef-rood); color: white; align-items: center;
+            justify-content: space-between; padding: 0 20px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .menu-toggle {
-            background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;
-        }
+        .menu-toggle { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; font-weight: 800; }
 
         /* SIDEBAR */
         .sidebar {
-            width: var(--sidebar-breedte);
-            background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
-            color: white;
-            position: fixed;
-            top: 0; left: 0; bottom: 0;
-            border-right: 6px solid var(--dreef-blauw);
-            display: flex;
-            flex-direction: column;
-            z-index: 1100;
-            overflow-y: auto;
-            transition: transform 0.3s ease;
+            width: var(--sidebar-breedte); background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
+            color: white; position: fixed; top: 0; left: 0; bottom: 0; border-right: 6px solid var(--dreef-blauw);
+            display: flex; flex-direction: column; z-index: 1100; overflow-y: auto; transition: transform 0.3s ease;
         }
 
         .sidebar-header { padding: 30px 20px; text-align: center; background: rgba(0,0,0,0.15); flex-shrink: 0; }
         .sidebar-logo { width: 100px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
-        
-        .sidebar-title { 
-            font-size: 1.5rem; text-transform: uppercase; font-weight: 800; color: var(--wit);
-            margin-top: 15px; line-height: 1.1; letter-spacing: 1px;
-        }
+        .sidebar-title { font-size: 1.5rem; text-transform: uppercase; font-weight: 800; color: var(--wit); margin-top: 15px; line-height: 1.1; }
 
         .home-btn {
-            display: flex; justify-content: center; align-items: center; 
-            width: 90%; margin: 15px auto; height: 60px;
-            background: var(--wit); color: var(--dreef-blauw);
-            border: none; border-radius: 12px;
-            cursor: pointer; font-size: 2rem; font-weight: 800;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-transform: uppercase;
+            display: flex; justify-content: center; align-items: center; width: 90%; margin: 15px auto; height: 60px;
+            background: var(--wit); color: var(--dreef-blauw); border: none; border-radius: 12px;
+            cursor: pointer; font-size: 2rem; font-weight: 800; text-transform: uppercase;
         }
 
         .category-btn {
-            width: 100%; background: transparent; color: white;
-            padding: 15px 25px; border: none; text-align: left;
-            font-weight: 600; text-transform: uppercase;
-            cursor: pointer; display: flex; justify-content: space-between; 
-            align-items: center; border-bottom: 1px solid var(--trans-wit);
-            font-size: 1.05rem;
+            width: 100%; background: transparent; color: white; padding: 15px 25px; border: none; text-align: left;
+            font-weight: 600; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid var(--trans-wit); font-size: 1.05rem;
         }
 
         .team-group { display: none; background: rgba(0,0,0,0.25); padding: 12px; flex-wrap: wrap; gap: 8px; }
         .sidebar-item:hover .team-group { display: flex; }
 
         .team-button {
-            flex: 1 1 calc(50% - 8px); background: rgba(255,255,255,0.08); color: white;
-            border: 1px solid var(--trans-wit); padding: 10px 5px;
-            font-size: 0.9rem; font-weight: 600; text-transform: uppercase; border-radius: 8px;
+            flex: 1 1 calc(50% - 8px); background: rgba(255,255,255,0.08); color: white; border: 1px solid var(--trans-wit);
+            padding: 10px 5px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; border-radius: 8px; cursor: pointer;
         }
 
         /* MAIN CONTENT */
@@ -96,23 +66,26 @@
         
         h1#active-team-name { 
             color: var(--dreef-blauw); text-transform: uppercase; border-left: 12px solid var(--dreef-rood); 
-            padding-left: 30px; margin-bottom: 45px; font-size: 4.5rem;
-            line-height: 0.9; letter-spacing: -2px; font-weight: 800;
+            padding-left: 30px; margin-bottom: 45px; font-size: 4.5rem; line-height: 0.9; font-weight: 900;
         }
         
         .home-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 30px; }
-        .card-header { background: var(--dreef-blauw); color: white; padding: 20px 30px; font-weight: 800; text-transform: uppercase; border-bottom: 5px solid var(--dreef-rood); }
-        .card-body { padding: 35px; line-height: 1.7; font-size: 1.1rem; color: #333; }
+        
+        /* FIX: Geen gaten meer tussen header en body */
+        .card-header { background: var(--dreef-blauw); color: white; padding: 20px 30px; font-weight: 800; text-transform: uppercase; border-bottom: 5px solid var(--dreef-rood); margin: 0; }
+        .card-body { padding: 30px; line-height: 1.6; font-size: 1.1rem; color: #333; }
+        .card-body p { margin-top: 0; margin-bottom: 15px; } /* Verwijder gat bovenin p */
 
-        .activity-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .activity-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
         .date-badge { background: var(--dreef-rood); color: white; padding: 10px; border-radius: 12px; min-width: 60px; text-align: center; font-weight: 800; }
 
         .newsletter-box { background: var(--dreef-blauw); color: white; padding: 30px; border-radius: 24px; text-align: center; }
-        .newsletter-box input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; }
+        .newsletter-box h2 { font-weight: 800; margin-bottom: 10px; }
+        .newsletter-box p { margin-top: 0; margin-bottom: 15px; }
+        .newsletter-box input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: none; }
         .newsletter-btn { background: var(--dreef-rood); color: white; padding: 12px; border-radius: 8px; font-weight: 800; text-transform: uppercase; cursor: pointer; width: 100%; border: none; }
 
-        /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
             .mobile-header { display: flex; }
             .sidebar { transform: translateX(-100%); width: 85%; max-width: 320px; }
@@ -215,92 +188,42 @@
             }
         }
 
-const homeContent = `
-    <h1 id="active-team-name">SV OVERVECHT DE DREEF</h1>
-    <div class="home-grid">
-        <div class="left-col">
-            <div class="card">
-                <div class="card-header">WELKOM BIJ ONZE CLUB</div>
-                <div class="card-body">
-                    <p style="font-size: 1.2rem; font-weight: 600; margin-top: 0;">Samen sterker in Overvecht!</p>
-                    <p>SV Overvecht De Dreef is een levendige voetbalvereniging in het hart van Utrecht. Wij bieden een plek aan jong en oud om op een plezierige en sportieve manier met de voetbalsport bezig te zijn. Onze club staat bekend om de familiale sfeer en de passie voor het spel.</p>
+        const homeContent = `
+            <h1 id="active-team-name">SV OVERVECHT</h1>
+            <div class="home-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header">Over Onze Club</div>
+                        <div class="card-body">
+                            <p>SV Overvecht De Dreef is een levendige voetbalvereniging in Utrecht. Wij bieden een plek aan jong en oud voor sportiviteit en plezier.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Club Activiteiten 2026</div>
+                        <div class="card-body">
+                            <div class="activity-item"><div class="date-badge">12<br>APR</div><div><strong>Paas-Toernooi Jeugd</strong></div></div>
+                            <div class="activity-item" style="border:0; margin:0; padding:0;"><div class="date-badge">20<br>JUN</div><div><strong>Eind-BBQ Seizoen</strong></div></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">WAAR WIJ VOOR STAAN</div>
-                <div class="card-body">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div>
-                            <strong style="display:block; color: var(--dreef-rood); margin-bottom: 5px;">Respect</strong>
-                            Op en rond het veld behandelen we elkaar, de tegenstander en de scheidsrechter met respect.
-                        </div>
-                        <div>
-                            <strong style="display:block; color: var(--dreef-rood); margin-bottom: 5px;">Plezier</strong>
-                            Voetbal is een spel; het plezier van onze leden staat altijd voorop.
-                        </div>
-                        <div>
-                            <strong style="display:block; color: var(--dreef-rood); margin-bottom: 5px;">Ontwikkeling</strong>
-                            Wij investeren in de groei van onze spelers, zowel sportief als sociaal.
-                        </div>
-                        <div>
-                            <strong style="display:block; color: var(--dreef-rood); margin-bottom: 5px;">Samenwerking</strong>
-                            Vrijwilligers, ouders en spelers vormen samen de kracht van onze club.
+                <div class="right-col">
+                    <div class="newsletter-box">
+                        <h2>NIEUWSBRIEF</h2>
+                        <p>Blijf op de hoogte van al het clubnieuws.</p>
+                        <input type="email" placeholder="Je e-mailadres">
+                        <button class="newsletter-btn">Aanmelden</button>
+                    </div>
+                    <div class="card" style="margin-top:30px;">
+                        <div class="card-header" style="background:var(--dreef-rood);">HELP DE CLUB</div>
+                        <div class="card-body" style="text-align:center;">
+                            <p style="margin-bottom:20px; font-weight:600;">Wij zoeken nog scheidsrechters en trainers!</p>
+                            <button style="background:var(--dreef-blauw); color:white; border:none; padding:12px; border-radius:8px; width:100%; font-weight:800; cursor:pointer;">MELD JE AAN</button>
                         </div>
                     </div>
                 </div>
             </div>
+        `;
 
-            <div class="card">
-                <div class="card-header">CLUB ACTIVITEITEN 2026</div>
-                <div class="card-body">
-                    <div class="activity-item">
-                        <div class="date-badge">12<br>APR</div>
-                        <div><strong>Groot Paas-Toernooi</strong><br>Een sportieve dag voor de hele buurt met muziek en snacks.</div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="date-badge">30<br>MEI</div>
-                        <div><strong>Vrijwilligers Bedankavond</strong><br>Zonder onze vrijwilligers geen club. Een avond vol waardering.</div>
-                    </div>
-                    <div class="activity-item" style="border-bottom: none; margin-bottom: 0;">
-                        <div class="date-badge">20<br>JUN</div>
-                        <div><strong>Eind-BBQ & Familie-dag</strong><br>De gezamenlijke afsluiting van het voetbalseizoen.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="right-col">
-            <div class="newsletter-box">
-                <h2 style="margin-top:0;">NIEUWSBRIEF</h2>
-                <p>Ontvang het laatste nieuws en belangrijke meldingen direct in je mailbox.</p>
-                <input type="email" placeholder="Je e-mailadres">
-                <button class="newsletter-btn">Aanmelden</button>
-            </div>
-
-            <div class="card" style="margin-top: 30px;">
-                <div class="card-header" style="background: var(--dreef-rood);">DE KANTINE</div>
-                <div class="card-body" style="font-size: 0.95rem;">
-                    <p>Onze kantine is het kloppend hart van de vereniging. Kom langs voor een bakje koffie of een hapje na de wedstrijd!</p>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 5px 0;">
-                    <strong>Openingstijden:</strong><br>
-                    Ma t/m Vr: 18:30 - 22:00<br>
-                    Zaterdag: 08:00 - 18:00<br>
-                    Zondag: Gesloten
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">HELP DE CLUB</div>
-                <div class="card-body" style="text-align: center;">
-                    <p>Wij zoeken nog scheidsrechters en trainers!</p>
-                    <button style="background: var(--dreef-blauw); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; width: 100%;">MELD JE AAN</button>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-        
         function gaNaarHome() {
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             document.getElementById('main-container').innerHTML = homeContent;
@@ -314,7 +237,9 @@ const homeContent = `
                 <h1 id="active-team-name">${teamNaam}</h1>
                 <div class="card">
                     <div class="card-header">Team Informatie</div>
-                    <div class="card-body">Informatie voor ${teamNaam} wordt hier geladen.</div>
+                    <div class="card-body">
+                        <p>Informatie voor ${teamNaam} wordt hier geladen.</p>
+                    </div>
                 </div>`;
         }
         window.onload = gaNaarHome;
