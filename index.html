@@ -18,7 +18,7 @@
 
         body { font-family: 'Poppins', sans-serif; background: var(--achtergrond); margin: 0; display: flex; min-height: 100vh; color: var(--dreef-blauw); }
 
-        /* SIDEBAR */
+        /* SIDEBAR (ONGEWIJZIGD) */
         .sidebar {
             width: var(--sidebar-breedte);
             background: linear-gradient(180deg, var(--dreef-rood) 0%, #a00000 100%);
@@ -35,13 +35,12 @@
         .sidebar-header { padding: 30px 20px; text-align: center; background: rgba(0,0,0,0.15); flex-shrink: 0; }
         .sidebar-logo { width: 100px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
         
-        /* DE WITTE TITEL FIX */
         .sidebar-title { 
             font-family: 'Oswald', sans-serif; 
             font-size: 1.5rem; 
             text-transform: uppercase; 
             font-weight: 700;
-            color: var(--wit); /* TEXT IS NU WIT */
+            color: var(--wit);
             margin-top: 15px;
             line-height: 1.1;
             letter-spacing: 1px;
@@ -92,9 +91,16 @@
             line-height: 0.9; letter-spacing: -2px; font-weight: 800;
         }
         
+        /* HOME LAYOUT ELEMENTEN */
+        .home-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
         .card { 
             background: white; border-radius: 28px; overflow: hidden; 
-            box-shadow: var(--shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.02);
+            box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.02);
         }
         .card-header { 
             background: var(--dreef-blauw); color: white; padding: 20px 30px; 
@@ -102,9 +108,36 @@
             text-transform: uppercase; font-size: 1.3rem; letter-spacing: 1px;
             border-bottom: 5px solid var(--dreef-rood);
         }
-        .mededeling-box { padding: 40px; line-height: 1.8; font-size: 1.2rem; color: #333; }
+        .card-body { padding: 35px; line-height: 1.7; font-size: 1.1rem; color: #333; }
 
-        @media (max-width: 900px) {
+        /* ACTIVITEITEN LIJST */
+        .activity-item {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+            padding-bottom: 15px; border-bottom: 1px solid #eee;
+        }
+        .date-badge {
+            background: var(--dreef-rood); color: white; padding: 10px;
+            border-radius: 12px; min-width: 60px; text-align: center;
+            font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.2;
+        }
+
+        /* NIEUWSBRIEF FORM */
+        .newsletter-box {
+            background: var(--dreef-blauw); color: white; padding: 30px;
+            border-radius: 24px; text-align: center;
+        }
+        .newsletter-box input {
+            width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none;
+            box-sizing: border-box;
+        }
+        .newsletter-btn {
+            background: var(--dreef-rood); color: white; border: none;
+            padding: 12px 30px; border-radius: 8px; font-family: 'Oswald', sans-serif;
+            text-transform: uppercase; cursor: pointer; width: 100%; font-size: 1rem;
+        }
+
+        @media (max-width: 1000px) {
+            .home-grid { grid-template-columns: 1fr; }
             body { flex-direction: column; }
             .sidebar { position: relative; width: 100%; height: auto; border-right: none; }
             .main-content { margin-left: 0; padding: 30px; }
@@ -186,19 +219,85 @@
 
     </nav>
 
+    <main class="main-content">
+        <div class="container" id="main-container">
+            </div>
+    </main>
+
     <script>
+        const homeContent = `
+            <h1 id="active-team-name">SV OVERVECHT</h1>
+            <div class="home-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header">Over Onze Club</div>
+                        <div class="card-body">
+                            Welkom bij SV Overvecht De Dreef. Wij zijn meer dan alleen een voetbalclub; wij zijn een gemeenschap. 
+                            Op deze site vind je alle informatie over onze teams, evenementen en het laatste nieuws.
+                            <br><br>
+                            <i>Deze website is momenteel onder constructie. De volledige integratie met wedstrijdprogramma's volgt binnenkort.</i>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">Club Activiteiten 2026</div>
+                        <div class="card-body">
+                            <div class="activity-item">
+                                <div class="date-badge">12<br>APR</div>
+                                <div><strong>Paas-Toernooi Jeugd</strong><br>Groot toernooi voor alle O7 t/m O13 teams.</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="date-badge">30<br>MEI</div>
+                                <div><strong>Vrijwilligers Avond</strong><br>Bedankavond voor alle coaches en hulptrainers.</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="date-badge">20<br>JUN</div>
+                                <div><strong>Eind-BBQ Seizoen</strong><br>Gezellige afsluiting met de hele club.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div class="newsletter-box">
+                        <h2 style="font-family:'Oswald'; margin-top:0;">NIEUWSBRIEF</h2>
+                        <p>Blijf op de hoogte van clubnieuws en afgelastingen.</p>
+                        <input type="email" placeholder="Je e-mailadres">
+                        <button class="newsletter-btn">Aanmelden</button>
+                    </div>
+
+                    <div class="card" style="margin-top:30px;">
+                        <div class="card-header" style="background:var(--dreef-rood)">HELP DE CLUB</div>
+                        <div class="card-body" style="font-size:0.95rem;">
+                            Wij zoeken altijd naar enthousiaste scheidsrechters en kantine-medewerkers. Help jij ook mee? 
+                            <br><br>
+                            <strong>Meld je aan bij het bestuur!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
         function gaNaarHome() {
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
-            document.getElementById('active-team-name').innerText = "SV OVERVECHT";
-            document.getElementById('mededeling-box').innerHTML = "Welkom op de officiële website van SV Overvecht De Dreef. Kies een team voor de laatste standen en mededelingen. Deze site in onder constructie, einddatum is nog niet in zicht.";
+            document.getElementById('main-container').innerHTML = homeContent;
         }
 
         function laadTeam(buttonElement) {
             const teamNaam = buttonElement.innerText;
             document.querySelectorAll('.team-button').forEach(b => b.classList.remove('active'));
             buttonElement.classList.add('active');
-            document.getElementById('active-team-name').innerText = teamNaam;
-            document.getElementById('mededeling-box').innerHTML = "Live data voor <strong>" + teamNaam + "</strong> wordt geladen...";
+            
+            // Maak een team-specifieke pagina aan
+            document.getElementById('main-container').innerHTML = `
+                <h1 id="active-team-name">${teamNaam}</h1>
+                <div class="card">
+                    <div class="card-header">Team Informatie</div>
+                    <div class="card-body">
+                        Live data voor <strong>${teamNaam}</strong> wordt hier geladen zodra de Sportlink API is gekoppeld.
+                    </div>
+                </div>
+            `;
         }
 
         window.onload = gaNaarHome;
